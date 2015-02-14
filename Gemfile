@@ -48,3 +48,6 @@ end
 
 gem 'pry'
 gem 'pry-rails'
+
+gem 'schema_plus_pg_indexes', '~> 0.1.3'
+gem 'schema_monkey_rails', '~> 0.1.2'
