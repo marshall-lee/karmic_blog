@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :category, counter_cache: true
   belongs_to :author
 
+  validates_presence_of :title
   validates_presence_of :rating
   validates_presence_of :category
   validates_presence_of :author
