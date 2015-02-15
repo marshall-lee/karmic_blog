@@ -1,4 +1,4 @@
-== Karmic Blog!
+# Karmic Blog!
 
 ## Installation
 
