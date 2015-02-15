@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
   def author_name
     @author_name ||= if author then author.name end
   end
-  
+
   attr_writer :category_name
   def category_name
     @category_name ||= if category then category.name end
@@ -34,6 +34,8 @@ class Post < ActiveRecord::Base
 
   default_scope -> { includes(:category, :author) }
   scope :order_by_rating, -> { order rating: :desc }
+  scope :order_by_author_rating, -> { eager_load(:author).merge(Author.order_by_rating) }
   scope :top10, -> { order_by_rating.limit(10) }
   scope :with_best_authors, -> { eager_load(:author).merge(Author.with_highest_rating) }
+  scope :created_on, -> (date) { where created_at: date.beginning_of_day..date.end_of_day  }
 end
