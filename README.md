@@ -10,5 +10,5 @@
     % bin/rails s
 
 ## Routes
-    * go http://localhost:3000/posts/new to create a new post
-    * go http://localhost:3000/posts to access posts and filters
+* go [/posts/new](http://localhost:3000/posts/new) to create a new post
+* go [/posts](http://localhost:3000/posts) to view all posts and filters
