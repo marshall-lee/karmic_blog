@@ -1,0 +1,24 @@
+
+<h1><%= link_to post.title, post %></h1>
+
+<p>
+  <strong>Рейтинг:</strong>
+  <%= post.rating %>
+</p>
+
+<%= simple_format post.body %>
+
+<p>
+  <strong>Автор:</strong>
+  <%= post.author.name %>
+</p>
+
+<p>
+  <strong>Категория:</strong>
+  <%= post.category.name %>
+</p>
+
+<p>
+  <strong>Дата создаия:</strong>
+  <%= post.created_at.strftime("%d.%m.%Y %T") %>
+</p>

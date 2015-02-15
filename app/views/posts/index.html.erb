@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Публикации</h1>
+
+<%= link_to 'Новая публикация >>', new_post_path %>
+
+<h3>Фильтры:</h3>
+
+<%= form_tag('/posts', method: :get, remote: true, id: 'filters_form') do %>
+  <div class="field">
+    <%= label :filters, :author_name, "Автор" %><br>
+    <%= text_field :filters, :author_name %>
+  </div>
+
+  <div class="field">
+    <%= label :filters, :category_name, "Категория" %><br>
+    <%= text_field :filters, :category_name %>
+  </div>
+
+  <div class="field">
+    <%= label :filters, :created_on, "Дата создания" %><br>
+    <%= date_field :filters, :created_on %>
+  </div>
+
+  <div class="field">
+    <%= label :filters, :rating, "Фильтр по рейтингу" %><br>
+    <%= number_field :filters, :rating, min: 0, max: 5 %>
+  </div>
+
+  <div class="field">
+    <%= label :filters, :rating_between_min, "Рейтинг в интервале" %><br>
+    <%= number_field "filters[rating_between]", :from, min: 0, max: 5 %> до
+    <%= number_field "filters[rating_between]", :to, min: 0, max: 5 %>
+  </div>
+
+  <div class="field">
+    <%= check_box :filters, :order_by_author_rating %>
+    <%= label :filters, :order_by_author_rating, "Лучшие авторы" %>
+
+  </div>
+
+  <%= hidden_field_tag :partial, true %>
+
+  <div class="actions">
+    <%= submit_tag "Отфильтровать" %>
+  </div>
+<% end %>
+
+<div id="posts">
+  <%= render @posts %>
+</div>
