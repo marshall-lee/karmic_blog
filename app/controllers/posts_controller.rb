@@ -34,7 +34,7 @@ class PostsController < ApplicationController
         end
       end
 
-      unless filters[:order_by_author_rating] == "0"
+      if filters[:order_by_author_rating] == "1"
         @posts = @posts.order_by_author_rating
       end
     end
