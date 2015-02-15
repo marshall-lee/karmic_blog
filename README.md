@@ -6,5 +6,5 @@
     cd karmic_blog
     bundle
     cp config/database.yml.example config/database.yml
-    bin/rake db:create
+    bin/rake db:setup
     bin/rails s
